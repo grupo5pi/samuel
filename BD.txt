@@ -1,0 +1,138 @@
+-- Criando banco de dados meatHealth
+
+CREATE DATABASE meatHealth;
+
+-- Selecionando banco de dados meatHealth
+
+USE meatHealth;
+
+-- Criando a tabela clientes
+
+CREATE TABLE clientes
+    (
+        idCliente INT PRIMARY KEY AUTO_INCREMENT,
+        nome VARCHAR(50),
+        razaoSocial VARCHAR(80),
+        cpf_cnpj VARCHAR(20),
+        cep CHAR(8),
+        numeroEndereco VARCHAR(8),
+        email VARCHAR(30),
+        telefone VARCHAR(10),
+        celular VARCHAR(11),
+        ramo VARCHAR(20),
+        dataCadastro DATETIME,
+        usuario VARCHAR(20),
+        senha VARCHAR(255)
+        status VARCHAR(7),
+        tipoCobranca VARCHAR(6)
+    );
+    
+-- Criando a tabela aparelhos    
+    
+CREATE TABLE aparelhos
+    (
+        idAparelho INT PRIMARY KEY AUTO_INCREMENT,
+     modelo VARCHAR(20),
+     idCliente INT,
+     dataFabricacao DATE
+    ) AUTO_INCREMENT = 1000;
+    
+-- Criando a tabela pagamentos    
+    
+CREATE TABLE pagamentos
+    (
+        idFatura INT PRIMARY KEY AUTO_INCREMENT,
+        idCliente INT,
+        situacao VARCHAR(20) DEFAULT 'Em aberto',
+        dataHora DATETIME,
+        dataVenc DATE,
+        CONSTRAINT chkSituacao CHECK (situacao IN('Em aberto','Em atraso','Compensada'))
+    );
+    
+-- Criando a tabela registros auditoria    
+    
+CREATE TABLE registrosAuditoria
+    (
+        idRegistro INT PRIMARY KEY AUTO_INCREMENT,
+        temperatura DECIMAL(4,2),
+        umidade DECIMAL (4,1),
+        dataHora DATETIME,
+        idAparelho INT
+    );
+    
+-- Cadastrando cliente
+
+INSERT INTO clientes VALUES
+    (
+        NULL, 'NOME', 'RAZÃO SOCIAL', 'CPF OU CNPJ', 'CEP', 'NÚMERO ENDEREÇO', 'E-MAIL', 'TELEFONE', 'CELULAR', 'RAMO','DAT CADASTRO', 'USUARIO', 'SENHA', 'STATUS', 'TIPO DE COBRANÇA'
+    ),
+    (
+        NULL, 'NOME', 'RAZÃO SOCIAL', 'CPF OU CNPJ', 'CEP', 'NÚMERO ENDEREÇO', 'E-MAIL', 'TELEFONE', 'CELULAR', 'RAMO','DAT CADASTRO', 'USUARIO', 'SENHA', 'STATUS', 'TIPO DE COBRANÇA'
+    ),
+    (
+        NULL, 'NOME', 'RAZÃO SOCIAL', 'CPF OU CNPJ', 'CEP', 'NÚMERO ENDEREÇO', 'E-MAIL', 'TELEFONE', 'CELULAR', 'RAMO','DAT CADASTRO', 'USUARIO', 'SENHA', 'STATUS', 'TIPO DE COBRANÇA'
+    ),
+    (
+        NULL, 'NOME', 'RAZÃO SOCIAL', 'CPF OU CNPJ', 'CEP', 'NÚMERO ENDEREÇO', 'E-MAIL', 'TELEFONE', 'CELULAR', 'RAMO','DAT CADASTRO', 'USUARIO', 'SENHA', 'STATUS', 'TIPO DE COBRANÇA'
+    ),
+    (
+        NULL, 'NOME', 'RAZÃO SOCIAL', 'CPF OU CNPJ', 'CEP', 'NÚMERO ENDEREÇO', 'E-MAIL', 'TELEFONE', 'CELULAR', 'RAMO','DAT CADASTRO', 'USUARIO', 'SENHA', 'STATUS', 'TIPO DE COBRANÇA'
+    );
+    
+-- Cadastrando aparelho
+
+INSERT INTO aparelhos VALUES
+    (
+        NULL, 'MODELO', ID CLIENTE, 'DATA FABRICAÇÃO'
+    ),
+    (
+        NULL, 'MODELO', ID CLIENTE, 'DATA FABRICAÇÃO'
+    ),
+    (
+        NULL, 'MODELO', ID CLIENTE, 'DATA FABRICAÇÃO'
+    ),
+    (
+        NULL, 'MODELO', ID CLIENTE, 'DATA FABRICAÇÃO'
+    ),
+    (
+        NULL, 'MODELO', ID CLIENTE, 'DATA FABRICAÇÃO'
+    );
+    
+-- Cadastrando fatura
+
+INSERT INTO faturas VALUES
+    (
+        NULL, ID CLIENTE, DEFAULT, 'DATA E HORA', 'DATA VENCIMENTO'
+    ),
+    (
+        NULL, ID CLIENTE, DEFAULT, 'DATA E HORA', 'DATA VENCIMENTO'
+    ),
+    (
+        NULL, ID CLIENTE, DEFAULT, 'DATA E HORA', 'DATA VENCIMENTO'
+    ),
+    (
+        NULL, ID CLIENTE, DEFAULT, 'DATA E HORA', 'DATA VENCIMENTO'
+    ),
+    (
+        NULL, ID CLIENTE, DEFAULT, 'DATA E HORA', 'DATA VENCIMENTO'
+    );
+    
+-- Simulação registro de dado aparelho
+
+INSERT INTO registrosAuditoria VALUES
+    (
+        NULL, 00.00, 000.0, 'DATA E HORA', ID APARELHO
+    ),
+    (
+        NULL, 00.00, 000.0, 'DATA E HORA', ID APARELHO
+    ),
+    (
+        NULL, 00.00, 000.0, 'DATA E HORA', ID APARELHO
+    ),
+    (
+        NULL, 00.00, 000.0, 'DATA E HORA', ID APARELHO
+    ),
+    (
+        NULL, 00.00, 000.0, 'DATA E HORA', ID APARELHO
+    ),
+    
