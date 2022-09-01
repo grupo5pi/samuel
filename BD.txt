@@ -22,7 +22,7 @@ CREATE TABLE clientes
         ramo VARCHAR(20),
         dataCadastro DATETIME,
         usuario VARCHAR(20),
-        senha VARCHAR(255)
+        senha VARCHAR(255),
         status VARCHAR(7),
         tipoCobranca VARCHAR(6)
     );
