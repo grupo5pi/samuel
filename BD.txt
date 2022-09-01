@@ -16,7 +16,8 @@ CREATE TABLE clientes
         cpf_cnpj VARCHAR(20),
         cep CHAR(8),
         numeroEndereco VARCHAR(8),
-        email VARCHAR(30),
+        complemento VARCHAR(30),
+        email VARCHAR(50),
         telefone VARCHAR(10),
         celular VARCHAR(11),
         ramo VARCHAR(20),
@@ -32,9 +33,9 @@ CREATE TABLE clientes
 CREATE TABLE aparelhos
     (
         idAparelho INT PRIMARY KEY AUTO_INCREMENT,
-     modelo VARCHAR(20),
-     idCliente INT,
-     dataFabricacao DATE
+		modelo VARCHAR(20),
+		idCliente INT,
+		dataFabricacao DATE
     ) AUTO_INCREMENT = 1000;
     
 -- Criando a tabela pagamentos    
@@ -64,75 +65,64 @@ CREATE TABLE registrosAuditoria
 
 INSERT INTO clientes VALUES
     (
-        NULL, 'NOME', 'RAZÃO SOCIAL', 'CPF OU CNPJ', 'CEP', 'NÚMERO ENDEREÇO', 'E-MAIL', 'TELEFONE', 'CELULAR', 'RAMO','DAT CADASTRO', 'USUARIO', 'SENHA', 'STATUS', 'TIPO DE COBRANÇA'
+        NULL, 'JBS Friboi', 'Jbs S/A', '02.916.265/0141-10', '05118100', '500', NULL, 'jbs@fsb.com.br', '1131444000', NULL, 'Produção de carnes','2022-09-01', 'jbssa', 'passjbs*', 'Ativo', 'Mensal'
     ),
     (
-        NULL, 'NOME', 'RAZÃO SOCIAL', 'CPF OU CNPJ', 'CEP', 'NÚMERO ENDEREÇO', 'E-MAIL', 'TELEFONE', 'CELULAR', 'RAMO','DAT CADASTRO', 'USUARIO', 'SENHA', 'STATUS', 'TIPO DE COBRANÇA'
+        NULL, 'Seara Alimentos', 'Seara Alimentos LTDA', '02.914.460/0001-50', '88305100', '658', '1 Andar', 'contato@seara.com.br', '1145612894', NULL, 'Alimentício','2022-09-01', 'searaltda', 'passseara', 'Ativo', 'Mensal'
     ),
     (
-        NULL, 'NOME', 'RAZÃO SOCIAL', 'CPF OU CNPJ', 'CEP', 'NÚMERO ENDEREÇO', 'E-MAIL', 'TELEFONE', 'CELULAR', 'RAMO','DAT CADASTRO', 'USUARIO', 'SENHA', 'STATUS', 'TIPO DE COBRANÇA'
+        NULL, 'Sadia', 'BRF S/A', '01.838.723/0113-23', '29136519', '02', NULL, 'contato@sadia.com.br', '1125994652', NULL, 'Alimentício','2022-09-01', 'sadiasa', 'passsadia', 'Ativo', 'Anual'
     ),
     (
-        NULL, 'NOME', 'RAZÃO SOCIAL', 'CPF OU CNPJ', 'CEP', 'NÚMERO ENDEREÇO', 'E-MAIL', 'TELEFONE', 'CELULAR', 'RAMO','DAT CADASTRO', 'USUARIO', 'SENHA', 'STATUS', 'TIPO DE COBRANÇA'
+        NULL, 'Dagranja', 'Dagranja Agroindustrial LTDA', '59.966.879/0001-73', '05118100', '500', NULL, 'contato@dagranja.com', '1145292222', NULL, 'Alimentício','2022-09-01', 'dagranja', 'passdg',  'Ativo', 'Mensal'
     ),
     (
-        NULL, 'NOME', 'RAZÃO SOCIAL', 'CPF OU CNPJ', 'CEP', 'NÚMERO ENDEREÇO', 'E-MAIL', 'TELEFONE', 'CELULAR', 'RAMO','DAT CADASTRO', 'USUARIO', 'SENHA', 'STATUS', 'TIPO DE COBRANÇA'
+        NULL, 'Alianca Transportes', 'Alianca Transportes Rodoviario LTDA', '15.558.263/0001-98', '88812850', '4430', NULL, 'contato@aliancatransportes.com.br', '1145288040', NULL, 'Transportes','2022-09-01', 'aliancaltda', 'passalianca', 'Ativo', 'Mensal'
     );
     
 -- Cadastrando aparelho
 
 INSERT INTO aparelhos VALUES
     (
-        NULL, 'MODELO', ID CLIENTE, 'DATA FABRICAÇÃO'
+        NULL, 'ECC1', 1, '2022-08-13'
     ),
     (
-        NULL, 'MODELO', ID CLIENTE, 'DATA FABRICAÇÃO'
+        NULL, 'ECC1', NULL, '2022-08-13'
     ),
     (
-        NULL, 'MODELO', ID CLIENTE, 'DATA FABRICAÇÃO'
+        NULL, 'ECC1', NULL, '2022-08-13'
     ),
     (
-        NULL, 'MODELO', ID CLIENTE, 'DATA FABRICAÇÃO'
+        NULL, 'ECC1', NULL, '2022-08-13'
     ),
     (
-        NULL, 'MODELO', ID CLIENTE, 'DATA FABRICAÇÃO'
+        NULL, 'ECC1', 2, '2022-08-13'
     );
     
 -- Cadastrando fatura
 
-INSERT INTO faturas VALUES
+INSERT INTO pagamentos VALUES
     (
-        NULL, ID CLIENTE, DEFAULT, 'DATA E HORA', 'DATA VENCIMENTO'
+        NULL, 1, DEFAULT, '2022-09-01 19:13:23', '2022-10-01'
     ),
     (
-        NULL, ID CLIENTE, DEFAULT, 'DATA E HORA', 'DATA VENCIMENTO'
-    ),
-    (
-        NULL, ID CLIENTE, DEFAULT, 'DATA E HORA', 'DATA VENCIMENTO'
-    ),
-    (
-        NULL, ID CLIENTE, DEFAULT, 'DATA E HORA', 'DATA VENCIMENTO'
-    ),
-    (
-        NULL, ID CLIENTE, DEFAULT, 'DATA E HORA', 'DATA VENCIMENTO'
+        NULL, 2, DEFAULT, '2022-09-01 19:13:48', '2022-10-01'
     );
     
 -- Simulação registro de dado aparelho
 
 INSERT INTO registrosAuditoria VALUES
     (
-        NULL, 00.00, 000.0, 'DATA E HORA', ID APARELHO
+        NULL, -8.55, 92.1, '2022-09-01 19:15:27', 1000
     ),
     (
-        NULL, 00.00, 000.0, 'DATA E HORA', ID APARELHO
-    ),
-    (
-        NULL, 00.00, 000.0, 'DATA E HORA', ID APARELHO
-    ),
-    (
-        NULL, 00.00, 000.0, 'DATA E HORA', ID APARELHO
-    ),
-    (
-        NULL, 00.00, 000.0, 'DATA E HORA', ID APARELHO
-    ),
+        NULL, -8.53, 91.8, '2022-09-01 19:15:37', 1000
+    );
     
+-- Selecionando dados da tabela clientes
+
+SELECT * FROM clientes;    
+    
+-- Selecionando temperaturas e id do aparelho
+
+SELECT temperatura AS 'Temperatura', idAparelho AS 'Matrícula do aparelho' FROM registrosAuditoria;    
