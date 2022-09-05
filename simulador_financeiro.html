@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de economia com ECC1 | By Meat Health - Auditoria frigorífica computadorizada</title>
+</head>
+<body>
+    <div id="logo">
+    </div>
+    <div id="content">
+        <div id="div_title">
+            <span id="text_title">Simule aqui sua economia com ECC1</span><br>
+            <span id="subtitle">Transporte/Estoque</span>
+        </div><br>
+        QTD armazenada em kg: <input type="text" id="input_qtd_armazenada"><br><br>
+        Custo em kg: <input type="text" id="input_custo"><br><br>
+        Lucro em kg: <input type="text" id="input_lucro"><br><br>
+        <button onclick="Calcular()">Calcular</button> <button onclick="ZerarValores()">Zerar valores</button><br><br>
+        <div id="resultado"></div>
+    </div>
+    <div id="footer">
+    </div>
+</body>
+</html>
+<script>
+    function Calcular(){
+        var qtd_armazenada = Number(input_qtd_armazenada.value);
+        var custo_kg = Number(input_custo.value);
+        var lucro_kg = Number(input_lucro.value);
+        var prejuizo = qtd_armazenada*custo_kg;
+        var lucro_perdido = lucro_kg*qtd_armazenada;
+
+        resultado.innerHTML =
+        `Atualmente você pode estar perdendo ${prejuizo.toFixed(2)} e deixando de lucrar ${lucro_perdido.toFixed(2)} <br>`;
+    }
+
+    function ZerarValores(){
+        resultado.innerHTML = "";
+    }
+</script>
